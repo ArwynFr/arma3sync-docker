@@ -11,7 +11,7 @@ WORKDIR /usr/local/src/arma3sync
 ENV ARMA3SYNC_FTP ftp://www.sonsofexiled.fr/ArmA3/ArmA3Sync/download
 
 RUN apt-get update && apt-get install --yes --no-install-recommends libxml-xpath-perl=1.40 wget=1.18 bsdtar=3.2.2
-RUN wget "${ARMA3SYNC_FTP}/`wget ${ARMA3SYNC_FTP}/a3s.xml -O- | xpath -q -n -e '/version/file/text()'`" -O- | bsdtar --strip-components=1 -xvf-
+RUN wget "${ARMA3SYNC_FTP}/$(wget ${ARMA3SYNC_FTP}/a3s.xml -O- | xpath -q -n -e '/version/file/text()')" -O- | bsdtar --strip-components=1 -xvf-
 
 #
 # Runtime image
