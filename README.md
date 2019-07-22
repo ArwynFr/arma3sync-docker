@@ -1,6 +1,6 @@
 # arma3sync-docker
 
-## What is `arma3sync-docker` and how is it different from `arma3sync`?
+## What is `arma3sync-docker` and how is it different from `arma3sync`
 
 **Arma3Sync** is a software developped by the arma 3 team [Sons of Exiled](http://sonsofexiled.fr/). It is both a launcher and adddons synchronization software for ArmA 3. It is intend to be used by players, server administrators and ArmA 3 teams.
 
@@ -8,16 +8,16 @@
 
 ## Quick reference
 
-- **Where to get help with docker**
+  - **Where to get help with docker**
     [the Docker Community Forums](https://forums.docker.com/), [the Docker Community Slack](https://blog.docker.com/2016/11/introducing-docker-community-directory-docker-community-slack/), or [Stack Overflow](https://stackoverflow.com/search?tab=newest&q=docker)
 
-- **Where to get help with arma3sync**
+  - **Where to get help with arma3sync**
     [the Bohemia Interactive Forums](https://forums.bohemia.net/forums/topic/152942-arma3sync-launcher-and-addons-synchronization-software-for-arma-3/), [the Sons of Exiled wiki](http://www.sonsofexiled.fr/wiki/index.php/1._ArmA3Sync)
 
-- **Where to file issues with arma3sync-docker**
+  - **Where to file issues with arma3sync-docker**
     [the project's Github](https://github.com/ArwynFr/arma3sync-docker/issues)
 
-- **Maintained by**
+  - **Maintained by**
     [ArwynFr](https://github.com/ArwynFr/arma3sync-docker)
 
 ## How to use this image
@@ -81,27 +81,27 @@ Building repository: test
 ...
 ```
 
-**`ARMA3SYNC_NAME`**
+#### `ARMA3SYNC_NAME`
 
 This variable is the name of a repository that will be created by arma3sync-docker when starting. This repository will be created on every container start, unless a repository with this name already exists. It must be a valid identifier and this name can used for other commands such as `-build`. If blank, the container will ignore the repository creation and proceed as usual.
 
-**`ARMA3SYNC_PROTOCOL`**
+#### `ARMA3SYNC_PROTOCOL`
 
 The protocol to use for data transfer with this repository. Values must be one of: `FTP`, `HTTP` or `HTTPS`.
 
-**`ARMA3SYNC_URL`**
+####  `ARMA3SYNC_URL`
 
 The repository URL, including the protocol part, such as `http://www.sonsofexiled.fr/repository`. This URL is the remote URL used by clients to download data from your repository. The autoconfig file is stored at `${ARMA3SYNC_URL}/.a3s/autoconfig`. Used both for creating a local repository that remote clients will sync to (using `-build`), or for creating a local copy of a remote repository that you want to download (using `-sync`).
 
-**`ARMA3SYNC_PORT`**
+####  `ARMA3SYNC_PORT`
 
 The port used by client when trying to connect to the repository. If empty, it will use the default port according to the specified protocol.
 
-**`ARMA3SYNC_LOGIN`** and **`ARMA3SYNC_PASSWD`**
+#### `ARMA3SYNC_LOGIN`** and **`ARMA3SYNC_PASSWD`
 
 If the connexion requires an authentication, you have to provide the credentials. If anonymous connexion is allowed, set those two variables to *empty*. Arma3sync-docker will behave correctly if you don't provide the `anonymous` value required by arma3sync.
 
-**`ARMA3SYNC_PATH`**
+####  `ARMA3SYNC_PATH`
 
 The absolute path where your local mod files are stored.
 
@@ -149,10 +149,10 @@ Run the docker-compose project with `docker-compose up -d`. Your repository will
 
 Whenever you want to update you mods, follow this procedure :
 
-- stop the web server with `docker-compose stop web`
-- delete and replace mods you want in `/home/mods`
-- run `docker-compose run sync` to update your arma3sync repository
-- start the web server with `docker-compose start web`
+  - stop the web server with `docker-compose stop web`
+  - delete and replace mods you want in `/home/mods`
+  - run `docker-compose run sync` to update your arma3sync repository
+  - start the web server with `docker-compose start web`
 
 ## Contributing
 
