@@ -19,7 +19,7 @@ RUN for dir in $(find . -type d -name ArmA3Sync*); do mv $dir/* .; done
 # Runtime image
 #
 
-FROM openjdk:8-jre-slim
+FROM openjdk:11-jre-slim
 
 LABEL \
   org.label-schema.schema-version = "1.0" \
