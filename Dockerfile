@@ -1,36 +1,41 @@
 #
 # "Build" image
 #
-# It actually downloads the latest binary from official FTP.
+# It actually compiles sources from the official svn repository
 #
 
-FROM debian:stretch-slim AS build
+FROM openjdk:14.0.1-jdk-slim AS build
 
 WORKDIR /usr/local/src/arma3sync
 
-ENV ARMA3SYNC_FTP ftp://www.sonsofexiled.fr/ArmA3/ArmA3Sync/download
+ARG ARMA3SYNC_VERSION
+ENV ARMA3SYNC_SVN svn://www.sonsofexiled.fr/repository/ArmA3Sync/releases
 
-RUN apt-get update && apt-get install -y libxml-xpath-perl unzip wget
-RUN wget ${ARMA3SYNC_FTP}/`wget ${ARMA3SYNC_FTP}/a3s.xml -O- | xpath -q -n -e '/version/file/text()'` -O arma3sync.zip
-RUN unzip arma3sync.zip
-RUN for dir in $(find . -type d -name ArmA3Sync*); do mv $dir/* .; done
+RUN apt-get update && apt-get install --yes subversion
+RUN svn checkout ${ARMA3SYNC_SVN}/ArmA3Sync-${ARMA3SYNC_VERSION} .
+RUN mkdir build
+RUN javac --release 11 $(find . -name "*.java") -encoding ISO-8859-1 -classpath $(find . -name "*.jar" -printf '%p:') -d ./build
+WORKDIR /usr/local/src/arma3sync/build
+RUN jar cmvf ../MANIFEST_A3S.MF ../ArmA3Sync.jar *
 
 #
 # Runtime image
 #
 
-FROM openjdk:8-jre-slim
+FROM openjdk:11.0.7-jre-slim AS runtime
 
 LABEL \
   org.label-schema.schema-version = "1.0" \
   org.label-schema.name = "arwynfr/arma3sync" \
   org.label-schema.description = "Arma3Sync docker command" \
   org.label-schema.vendor = "ArwynFr" \
-  org.label-schema.version = 1 \
+  org.label-schema.version = 2 \
   maintainer = "arwyn.fr@gmail.com"
 
 WORKDIR /opt/soe/arma3sync
 
+ARG ARMA3SYNC_VERSION
+ENV ARMA3SYNC_VERSION=$ARMA3SYNC_VERSION
 ENV ARMA3SYNC_OPT /opt/soe/arma3sync
 ENV ARMA3SYNC_NAME ""
 ENV ARMA3SYNC_PROTOCOL HTTP
