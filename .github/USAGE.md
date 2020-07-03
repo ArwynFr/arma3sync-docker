@@ -6,19 +6,18 @@
 
 Arma3sync-docker provides multiple tags allowing to run different combinations of the software and the java runtime versions. You can specify major or minor version of arma3sync and optionally major versions of the jre. The default jre version is jre11.
 
-
 #### OpenJDK versions
-* jre11
+*   jre11
 
 ***Note:** We're working on providing jre 8 versions.*
 
 #### Arma3sync versions
-* 1.1.23, 1.1.24, 1.1.30
-* 1.2.37, 1.2.38, 1.2.39, 1.2.40, 1.2.45, 1.2.46, 1.2.47, 1.2.48
-* 1.3.49
-* 1.4.53, 1.4.61, 1.4.63
-* 1.5.73, 1.5.75, 1.5.84
-* 1.7.99, 1.7.101, 1.7.103, 1.7.104
+*   1.1.23, 1.1.24, 1.1.30
+*   1.2.37, 1.2.38, 1.2.39, 1.2.40, 1.2.45, 1.2.46, 1.2.47, 1.2.48
+*   1.3.49
+*   1.4.53, 1.4.61, 1.4.63
+*   1.5.73, 1.5.75, 1.5.84
+*   1.7.99, 1.7.101, 1.7.103, 1.7.104
 
 ***Note:** Arma3Sync 1.6 is not available for jre 11 because it uses Java EE components which are not available with that jre version.*
 
