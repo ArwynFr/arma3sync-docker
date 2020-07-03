@@ -10,7 +10,7 @@
 
 The following documents provide additional informations on rules and standards applying to this project :
 
-*   [GNU GPL v3 license](../LICENSE.md)
+*   [GNU GPL v3 license](../LICENSE)
 *   [Contributing to this project](./CONTRIBUTING.md)
 *   [Security policy](./SECURITY.md)
 *   [Support policy](./SUPPORT.md)
