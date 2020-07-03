@@ -11,12 +11,12 @@ WORKDIR /usr/local/src/arma3sync
 ARG ARMA3SYNC_VERSION
 ENV ARMA3SYNC_SVN svn://www.sonsofexiled.fr/repository/ArmA3Sync/releases
 
-RUN apt-get update && apt-get install --yes subversion
+RUN apt-get update && apt-get install --yes subversion=1.10.4-1+deb10u1 --no-install-recommends
 RUN svn checkout ${ARMA3SYNC_SVN}/ArmA3Sync-${ARMA3SYNC_VERSION} .
 RUN mkdir build
-RUN javac --release 11 $(find . -name "*.java") -encoding ISO-8859-1 -classpath $(find . -name "*.jar" -printf '%p:') -d ./build
+RUN javac --release 11 $(find . -name "*.java") -encoding ISO-8859-1 -classpath "$(find . -name "*.jar" -printf '%p:')" -d ./build
 WORKDIR /usr/local/src/arma3sync/build
-RUN jar cmvf ../MANIFEST_A3S.MF ../ArmA3Sync.jar *
+RUN jar cmvf ../MANIFEST_A3S.MF ../ArmA3Sync.jar ./*
 
 #
 # Runtime image
@@ -48,7 +48,7 @@ ENV ARMA3SYNC_PATH /mods
 COPY --from=build /usr/local/src/arma3sync/ArmA3Sync.jar .
 COPY --from=build /usr/local/src/arma3sync/resources/lib ./resources/lib
 RUN ln -s /data ./resources/ftp
-ADD ./*.sh ./
+COPY ./*.sh .
 RUN chmod +x ./*.sh
 
 VOLUME /data
