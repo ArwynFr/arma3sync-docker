@@ -14,7 +14,7 @@ ENV ARMA3SYNC_SVN svn://www.sonsofexiled.fr/repository/ArmA3Sync/releases
 RUN apt-get update && apt-get install --yes subversion=1.10.4-1+deb10u1 --no-install-recommends
 RUN svn checkout ${ARMA3SYNC_SVN}/ArmA3Sync-${ARMA3SYNC_VERSION} .
 RUN mkdir build
-RUN javac --release 11 $(find . -name "*.java") -encoding ISO-8859-1 -classpath "$(find . -name "*.jar" -printf '%p:')" -d ./build
+RUN javac $(find . -name "*.java") -encoding ISO-8859-1 -classpath "$(find . -name "*.jar" -printf '%p:')" -d ./build
 WORKDIR /usr/local/src/arma3sync/build
 RUN jar cmvf ../MANIFEST_A3S.MF ../ArmA3Sync.jar ./*
 
