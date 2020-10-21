@@ -4,7 +4,7 @@
 # It actually compiles sources from the official svn repository
 #
 
-FROM openjdk:14.0.2-jdk-slim AS build
+FROM openjdk:15.0.1-jdk-slim AS build
 
 WORKDIR /usr/local/src/arma3sync
 
@@ -22,7 +22,7 @@ RUN jar cmvf ../MANIFEST_A3S.MF ../ArmA3Sync.jar ./*
 # Runtime image
 #
 
-FROM openjdk:14.0.2-jdk-slim AS runtime
+FROM openjdk:15.0.1-jdk-slim AS runtime
 
 LABEL \
   org.label-schema.schema-version = "1.0" \
