@@ -4,10 +4,16 @@
 
 ### Tags
 
-Arma3sync-docker provides multiple tags allowing to run different combinations of the software and the java runtime versions. You can specify major or minor version of arma3sync and optionally major versions of the jre. The default jre version is jre11.
+Arma3sync-docker provides multiple tags allowing to run different combinations of the software and the java runtime versions. You can specify major or minor version of arma3sync and optionally major versions of the jre.
+
+The complete list of tags is available on [the project's Docker hub page](https://hub.docker.com/r/arwynfr/arma3sync/tags).
+
+For production usage, you should use `arwynfr/arma3sync:1.7.104-jre11`
 
 #### OpenJDK versions
-*   jre11
+*   jre11, actually using OpenJDK jre 11.0.7
+
+The default jre version is jre11.
 
 ***Note:** We're working on providing jre 8 versions.*
 
