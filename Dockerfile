@@ -3,15 +3,16 @@
 #
 # It actually compiles sources from the official svn repository
 #
+ARG JAVA_VERSION
 
-FROM openjdk:16.0.1-jdk-slim AS build
+FROM openjdk:${JAVA_VERSION}-jdk-slim AS build
 
 WORKDIR /usr/local/src/arma3sync
 
 ARG ARMA3SYNC_VERSION
 ENV ARMA3SYNC_SVN svn://www.sonsofexiled.fr/repository/ArmA3Sync/releases
 
-RUN apt-get update && apt-get install --yes subversion=1.10.4-1+deb10u1 --no-install-recommends
+RUN apt-get update && apt-get install --yes subversion --no-install-recommends
 RUN svn checkout ${ARMA3SYNC_SVN}/ArmA3Sync-${ARMA3SYNC_VERSION} .
 RUN mkdir build
 RUN javac $(find . -name "*.java") -encoding ISO-8859-1 -classpath "$(find . -name "*.jar" -printf '%p:')" -d ./build
@@ -22,7 +23,7 @@ RUN jar cmvf ../MANIFEST_A3S.MF ../ArmA3Sync.jar ./*
 # Runtime image
 #
 
-FROM openjdk:16.0.1-jdk-slim AS runtime
+FROM openjdk:${JAVA_VERSION}-jdk-slim AS runtime
 
 LABEL \
   org.label-schema.schema-version = "1.0" \
