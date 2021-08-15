@@ -6,7 +6,7 @@ Only the last build of docker images are supported. All built versions of arma3s
 
 ## Reporting vulnerabilities
 
-We use [dependabot](https://github.com/dependabot/dependabot-core) to maintain our docker images up-to-date regarding dependancies. Vulnerabilities may still be found in the docker images, which you can report by [opening a github issue](https://github.com/ArwynFr/arma3sync-docker/issues).
+We use a periodic matrix build to maintain our docker images up-to-date regarding dependancies. Vulnerabilities may still be found in the docker images, which you can report by [opening a github issue](https://github.com/ArwynFr/arma3sync-docker/issues).
 
 In case of vulnerability in arma3sync, please contact the author on [the arma3sync thread on Bohemia Interactive Forums](https://forums.bohemia.net/forums/topic/152942-arma3sync-launcher-and-addons-synchronization-software-for-arma-3/).
 
