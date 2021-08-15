@@ -1,9 +1,9 @@
-[CmdletBinding()]
+[CmdletBinding(SupportsShouldProcess)]
 param()
   
 function New-Image {
 
-  [CmdletBinding()]
+  [CmdletBinding(SupportsShouldProcess)]
   param (
     [Parameter()]
     [int]
@@ -16,11 +16,13 @@ function New-Image {
   $version = $Arma3SyncVersion.split('-')
   $major = "$($version[0]).$($version[1])"
   $minor = "$($version[0]).$($version[1]).$($version[2])"
-  docker build . --build-arg "ARMA3SYNC_VERSION=$Arma3SyncVersion" --build-arg "JAVA_VERSION=$JavaVersion" `
-    -t "arwynfr/arma3sync:$minor-jre$JavaVersion" `
-    -t "arwynfr/arma3sync:$minor" `
-    -t "arwynfr/arma3sync:$major-jre$JavaVersion" `
-    -t "arwynfr/arma3sync:$major"
+  if ($PSCmdlet.ShouldProcess("arwynfr/arma3sync:$minor-jre$JavaVersion", 'docker build')) {
+    docker build . --build-arg "ARMA3SYNC_VERSION=$Arma3SyncVersion" --build-arg "JAVA_VERSION=$JavaVersion" `
+      -t "arwynfr/arma3sync:$minor-jre$JavaVersion" `
+      -t "arwynfr/arma3sync:$minor" `
+      -t "arwynfr/arma3sync:$major-jre$JavaVersion" `
+      -t "arwynfr/arma3sync:$major"
+  }
 }
 
 $javaVersions = 8, 11, 16
@@ -30,5 +32,3 @@ foreach ($javaVersion in $javaVersions) {
     New-Image -JavaVersion $javaVersion -Arma3SyncVersion $arma3syncVersion
   }
 }
-
-# docker push -a arwynfr/arma3sync
