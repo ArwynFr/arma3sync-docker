@@ -11,7 +11,7 @@ jobs:
 
       - name: Build images
         shell: pwsh
-        run: ./build.ps1
+        run: .\build.ps1
 
       - name: Login to DockerHub
         uses: docker/login-action@v1 
