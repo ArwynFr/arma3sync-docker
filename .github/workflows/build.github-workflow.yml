@@ -1,6 +1,7 @@
 name: build
 
 on:
+  workflow_dispatch:
   schedule:
     - cron: '0 0 * * 1'
 
@@ -9,9 +10,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
+      - name: Checkout sources
+        uses: actions/checkout@v1
+
       - name: Build images
         shell: pwsh
-        run: .\build.ps1
+        run: ./build.ps1
 
       - name: Login to DockerHub
         uses: docker/login-action@v1 
