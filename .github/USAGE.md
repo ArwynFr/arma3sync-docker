@@ -8,15 +8,14 @@ Arma3sync-docker provides multiple tags allowing to run different combinations o
 
 The complete list of tags is available on [the project's Docker hub page](https://hub.docker.com/r/arwynfr/arma3sync/tags).
 
-For production usage, you should use `arwynfr/arma3sync:1.7`
+For production usage, you should use `arwynfr/arma3sync:1.7.104-jre8`
 
 #### OpenJDK versions
 Arma3Sync-docker provides images for the following versions of the OpenJDK runtime:
 *   jre8, version used by arma3sync developpers
-*   jre11, current LTS version of the runtime
-*   jre16, current non-LTS version of the runtime
+*   jre17, current LTS version of the runtime
 
-***Note:** The default jre version is jre 16. All versions use the latest jre runtime for a given major version with the debian slim variant.*
+***Note:** Due to a bug in Github's runner engine matrix build system, I'm not able to provide shorter tags.*
 
 #### Arma3sync versions
 Arma3Sync-docker provides images for the following versions of Arma3Sync:

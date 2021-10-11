@@ -48,9 +48,10 @@ jobs:
           $version = $env:Arma3SyncVersion.split('-')
           $major = "$($version[0]).$($version[1])"
           $minor = "$($version[0]).$($version[1]).$($version[2])"
-          docker build . --build-arg "ARMA3SYNC_VERSION=$env:Arma3SyncVersion" --build-arg "JAVA_VERSION=$env:JavaVersion" `
-            -t "arwynfr/arma3sync:$minor-jre$env:JavaVersion" `
-            -t "arwynfr/arma3sync:$minor"
+          docker build . `
+            --build-arg "JAVA_VERSION=$env:JavaVersion" `
+            --build-arg "ARMA3SYNC_VERSION=$env:Arma3SyncVersion" `
+            --tag "arwynfr/arma3sync:$minor-jre$env:JavaVersion"
 
       - name: Login to DockerHub
         uses: docker/login-action@v1 
