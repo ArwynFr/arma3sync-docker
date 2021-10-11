@@ -49,7 +49,7 @@ ENV ARMA3SYNC_PATH /mods
 COPY --from=build /usr/local/src/arma3sync/ArmA3Sync.jar .
 COPY --from=build /usr/local/src/arma3sync/resources/lib ./resources/lib
 RUN ln -s /data ./resources/ftp
-COPY ./*.sh .
+COPY ./*.sh ./
 RUN chmod +x ./*.sh
 
 VOLUME /data
