@@ -41,17 +41,17 @@ jobs:
 
       - name: Build images
         shell: pwsh
-        with:
+        env:
           JavaVersion: ${{ matrix.java }}
           Arma3SyncVersion: ${{ matrix.a3s }}
         run: |
-          $version = $Arma3SyncVersion.split('-')
+          $version = $env:Arma3SyncVersion.split('-')
           $major = "$($version[0]).$($version[1])"
           $minor = "$($version[0]).$($version[1]).$($version[2])"
-          docker build . --build-arg "ARMA3SYNC_VERSION=$Arma3SyncVersion" --build-arg "JAVA_VERSION=$JavaVersion" `
-            -t "arwynfr/arma3sync:$minor-jre$JavaVersion" `
+          docker build . --build-arg "ARMA3SYNC_VERSION=$env:Arma3SyncVersion" --build-arg "JAVA_VERSION=$env:JavaVersion" `
+            -t "arwynfr/arma3sync:$minor-jre$env:JavaVersion" `
             -t "arwynfr/arma3sync:$minor" `
-            -t "arwynfr/arma3sync:$major-jre$JavaVersion" `
+            -t "arwynfr/arma3sync:$major-jre$env:JavaVersion" `
             -t "arwynfr/arma3sync:$major"
 
       - name: Login to DockerHub
