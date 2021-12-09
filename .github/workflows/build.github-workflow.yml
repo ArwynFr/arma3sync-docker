@@ -35,6 +35,7 @@ jobs:
           - 1-7-103
           - 1-7-104
           - 1-7-106
+          - 1-7-107
     steps:
 
       - name: Checkout sources
