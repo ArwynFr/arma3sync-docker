@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        java: [8,17,18]
+        java: [8,17,19]
         a3s:
           - 1-1-23
           - 1-1-24
