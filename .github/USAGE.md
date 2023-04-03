@@ -14,6 +14,7 @@ For production usage, you should use `arwynfr/arma3sync:1.7.107-jre8`
 Arma3Sync-docker provides images for the following versions of the OpenJDK runtime:
 *   jre8, version used by arma3sync developpers
 *   jre17, current LTS version of the runtime
+*   jre20, current latest version of the runtime
 
 ***Note:** Due to a bug in Github's runner engine matrix build system, I'm not able to provide shorter tags.*
 
