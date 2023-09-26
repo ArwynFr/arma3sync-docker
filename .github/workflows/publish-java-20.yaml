@@ -1,0 +1,18 @@
+name: publish arma3sync-docker image based on openjdk 20
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "*.sh"
+      - "Dockerfile"
+      - "java-20.Dockerfile"
+
+jobs:
+  build:
+    uses: .github/workflows/publish.yaml@main
+    with:
+      java-version: 20
+    secrets:
+      DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+      DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
