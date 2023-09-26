@@ -1,1 +1,1 @@
-FROM openjdk:8-jdk-slim
+FROM openjdk:8-jdk-slim@sha256:f3da68df5cc039309f03efe70f84634fbb1a598bf488340b64b4c3e588ff0f35
