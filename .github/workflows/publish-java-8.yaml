@@ -1,4 +1,4 @@
-name: publish arma3sync-docker image based on openjdk 8
+name: publish openjdk 8 arma3sync-docker
 
 on:
   workflow_dispatch:
