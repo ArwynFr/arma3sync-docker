@@ -7,15 +7,18 @@
   "packageRules": [
     {
       "matchFileNames": ["java-8.Dockerfile"],
-      "allowedVersions": "=8"
+      "allowedVersions": "=8",
+      "automerge": true
     },
     {
       "matchFileNames": ["java-17.Dockerfile"],
-      "allowedVersions": "=17"
+      "allowedVersions": "=17",
+      "automerge": true
     },
     {
       "matchFileNames": ["java-20.Dockerfile"],
-      "allowedVersions": "=20"
+      "allowedVersions": "=20",
+      "automerge": true
     }
   ]
 }
