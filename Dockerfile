@@ -5,7 +5,7 @@
 #
 ARG JAVA_VERSION
 
-FROM openjdk:${JAVA_VERSION}-jdk-slim AS build
+FROM eclipse-temurin:${JAVA_VERSION}-jdk AS build
 
 WORKDIR /usr/local/src/arma3sync
 
@@ -23,7 +23,7 @@ RUN jar cmvf ../MANIFEST_A3S.MF ../ArmA3Sync.jar ./*
 # Runtime image
 #
 
-FROM openjdk:${JAVA_VERSION}-jdk-slim AS runtime
+FROM eclipse-temurin:${JAVA_VERSION}-jre AS runtime
 
 LABEL \
   org.label-schema.schema-version = "1.0" \

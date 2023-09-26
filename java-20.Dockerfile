@@ -1,1 +1,2 @@
-FROM openjdk:20-jdk-slim@sha256:a76d765b72539accb30e9a814068fe29c4e63c0298c19a9e22e3e1138cf20cec
+FROM eclipse-temurin:20-jdk
+FROM eclipse-temurin:20-jre
