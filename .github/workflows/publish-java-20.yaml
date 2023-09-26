@@ -12,7 +12,7 @@ on:
 
 jobs:
   build:
-    uses: .github/workflows/publish.yaml@main
+    uses: ./.github/workflows/publish.yaml@main
     with:
       java-version: 20
     secrets:
