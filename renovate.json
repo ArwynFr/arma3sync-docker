@@ -1,6 +1,24 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:base"
+    "config:base",
+    "docker:pinDigests"
+  ],
+  "packageRules": [
+    {
+      "matchPackageNames": ["openjdk"],
+      "matchFileNames": ["java-8.Dockerfile"],
+      "allowedVersions": "=8"
+    },
+    {
+      "matchPackageNames": ["openjdk"],
+      "matchFileNames": ["java-17.Dockerfile"],
+      "allowedVersions": "=17"
+    },
+    {
+      "matchPackageNames": ["openjdk"],
+      "matchFileNames": ["java-20.Dockerfile"],
+      "allowedVersions": "=20"
+    }
   ]
 }
