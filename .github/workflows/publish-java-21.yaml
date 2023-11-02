@@ -1,4 +1,4 @@
-name: publish openjdk 20 arma3sync-docker
+name: publish openjdk 21 arma3sync-docker
 
 on:
   workflow_dispatch:
@@ -8,13 +8,13 @@ on:
     paths:
       - "*.sh"
       - "Dockerfile"
-      - "java-20.Dockerfile"
+      - "java-21.Dockerfile"
 
 jobs:
   build:
     uses: ./.github/workflows/publish.yaml
     with:
-      java-version: 20
+      java-version: 21
     secrets:
       DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
       DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
