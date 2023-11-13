@@ -6,9 +6,8 @@ on:
     branches:
       - main
     paths:
-      - "*.sh"
-      - "Dockerfile"
-      - "java-21.Dockerfile"
+      - "src"
+      - "deps/java-21.Dockerfile"
 
 jobs:
   build:
