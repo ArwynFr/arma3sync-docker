@@ -10,11 +10,11 @@
 
 The following documents provide additional informations on rules and standards applying to this project :
 
-*   [GNU GPL v3 license](../LICENSE)
-*   [Contributing to this project](./CONTRIBUTING.md)
-*   [Security policy](./SECURITY.md)
-*   [Support policy](./SUPPORT.md)
-*   [Using arma3sync-docker](./USAGE.md)
+* [GNU GPL v3 license](../LICENSE)
+* [Contributing to this project](./CONTRIBUTING.md)
+* [Security policy](./SECURITY.md)
+* [Support policy](./SUPPORT.md)
+* [Using arma3sync-docker](./USAGE.md)
 
 ## License
 
