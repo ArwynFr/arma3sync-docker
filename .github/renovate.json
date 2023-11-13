@@ -16,8 +16,8 @@
       "automerge": true
     },
     {
-      "matchFileNames": ["java-20.Dockerfile"],
-      "allowedVersions": "=20",
+      "matchFileNames": ["java-21.Dockerfile"],
+      "allowedVersions": "=21",
       "automerge": true
     }
   ]
