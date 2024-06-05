@@ -1,2 +1,2 @@
 FROM eclipse-temurin:21.0.3_9-jdk@sha256:ac1545309de7e27001a80d91df2d42865c0bacaec75e016cb4482255d7691187
-FROM eclipse-temurin:21.0.3_9-jre@sha256:5c1753e7f18ca3fe50e71ff8df1f1211be00aa9bc9b63fa71f556048e2df4f4c
+FROM eclipse-temurin:21.0.3_9-jre@sha256:8328198363f0800fcd5e6206482ed6415f6faf988cde0e109c4ad5af7c9775de
